@@ -20,11 +20,12 @@ const updateQuestionSchema = z.object({
 // GET - Obter pergunta específica
 export async function GET(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const { id } = await params
     const question = await prisma.question.findUnique({
-      where: { id: params.id },
+      where: { id },
       include: {
         options: {
           orderBy: { order: 'asc' }
@@ -52,9 +53,10 @@ export async function GET(
 // PUT - Atualizar pergunta
 export async function PUT(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const { id } = await params
     const body = await request.json()
     const validatedData = updateQuestionSchema.parse(body)
 
@@ -70,7 +72,7 @@ export async function PUT(
     if (validatedData.options && validatedData.type !== 'TEXT') {
       // Primeiro, deletar todas as opções existentes
       await prisma.option.deleteMany({
-        where: { questionId: params.id }
+        where: { questionId: id }
       })
 
       // Depois, criar as novas opções
@@ -85,12 +87,12 @@ export async function PUT(
     } else if (validatedData.type === 'TEXT') {
       // Se mudou para TEXT, deletar todas as opções existentes
       await prisma.option.deleteMany({
-        where: { questionId: params.id }
+        where: { questionId: id }
       })
     }
 
     const question = await prisma.question.update({
-      where: { id: params.id },
+      where: { id },
       data: updateData,
       include: {
         options: {
@@ -119,11 +121,12 @@ export async function PUT(
 // DELETE - Excluir pergunta
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const { id } = await params
     await prisma.question.delete({
-      where: { id: params.id }
+      where: { id }
     })
 
     return NextResponse.json({ message: 'Pergunta excluída com sucesso' })

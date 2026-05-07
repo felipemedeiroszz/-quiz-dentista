@@ -6,10 +6,10 @@ const prisma = new PrismaClient()
 // DELETE - Excluir todas as respostas de um usuário específico
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { userId: string } }
+  { params }: { params: Promise<{ userId: string }> }
 ) {
   try {
-    const { userId } = params
+    const { userId } = await params
 
     // Verificar se o usuário existe
     const user = await prisma.user.findUnique({
