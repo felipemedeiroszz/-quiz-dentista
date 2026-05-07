@@ -149,9 +149,9 @@ export function QuizContainer({
                    }}>
                 <div className="flex items-center gap-3 mb-3">
                   <Clock className="w-6 h-6 text-cyan-300" style={{filter: 'drop-shadow(0 0 10px rgba(0, 209, 255, 0.5))'}} />
-                  <h3 className="text-lg font-semibold text-white" style={{textShadow: '0 0 10px rgba(0, 209, 255, 0.3)'}}>Rápido e prático</h3>
+                  <h3 className="text-lg font-semibold text-white" style={{textShadow: '0 0 10px rgba(0, 209, 255, 0.3)'}}>Leva menos de</h3>
                 </div>
-                <p className="text-gray-300">Leva menos de 2 minutos</p>
+                <p className="text-gray-300">3 minutos</p>
               </div>
               
               <div className="rounded-2xl p-6 backdrop-blur-xl transition-all duration-300 hover:scale-105"

@@ -86,7 +86,7 @@ export default function HomePage() {
         </div>
 
         {/* Cards inferiores - grid responsivo */}
-        <div className="grid grid-cols-2 md:flex md:flex-nowrap gap-3 md:gap-0 bg-slate-900/80 backdrop-blur-md rounded-2xl p-4 md:p-6 flex-shrink-0 border border-slate-700/50">
+        <div className="grid grid-cols-2 md:flex md:flex-nowrap gap-3 md:gap-0 bg-slate-900/80 backdrop-blur-md rounded-2xl p-4 md:p-6 flex-shrink-0 border border-slate-700/50 md:max-w-3xl">
           
           {/* Card 1 */}
           <div className="flex items-start md:items-center gap-3 py-2 md:py-3 px-2 md:px-4 relative">
@@ -112,29 +112,13 @@ export default function HomePage() {
               </div>
             </div>
             <div className="min-w-0">
-              <h4 className="font-bold text-white text-xs md:text-base md:whitespace-nowrap">Para você</h4>
-              <p className="text-slate-300 text-[10px] md:text-sm leading-snug mt-0.5 md:mt-1">Respostas que geram<br/>um orçamento preciso</p>
+              <h4 className="font-bold text-white text-xs md:text-base md:whitespace-nowrap">Respostas precisas</h4>
+              <p className="text-slate-300 text-[10px] md:text-sm leading-snug mt-0.5 md:mt-1">Que geram um<br/>orçamento exato</p>
             </div>
           </div>
           
           {/* Divisor */}
           <div className="hidden md:block w-px bg-slate-600/50 self-stretch mx-2 order-4"></div>
-          
-          {/* Card 3 */}
-          <div className="flex items-start md:items-center gap-3 py-2 md:py-3 px-2 md:px-4 relative">
-            <div className="relative flex-shrink-0">
-              <div className="w-10 h-10 md:w-14 md:h-14 rounded-full border-2 border-cyan-400 flex items-center justify-center shadow-[0_0_10px_rgba(34,211,238,0.6)]">
-                <Shield className="w-5 h-5 md:w-7 md:h-7 text-cyan-400" />
-              </div>
-            </div>
-            <div className="min-w-0">
-              <h4 className="font-bold text-white text-xs md:text-base md:whitespace-nowrap">Sem compromisso</h4>
-              <p className="text-slate-300 text-[10px] md:text-sm leading-snug mt-0.5 md:mt-1">Orçamento gratuito<br/>e sem obrigação</p>
-            </div>
-          </div>
-          
-          {/* Divisor */}
-          <div className="hidden md:block w-px bg-slate-600/50 self-stretch mx-2 order-6"></div>
           
           {/* Card 4 */}
           <div className="flex items-start md:items-center gap-3 py-2 md:py-3 px-2 md:px-4 relative">
