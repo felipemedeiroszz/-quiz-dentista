@@ -95,8 +95,8 @@ export function QuizResult({ onGoHome, userData, answers }: QuizResultProps) {
               <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-800 rounded-full mb-3">
                 <div className="w-8 h-8 text-cyan-400" style={{ clipPath: 'polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%)' }}></div>
               </div>
-              <h3 className="text-white font-semibold text-sm mb-1">Avaliação sem compromisso</h3>
-              <p className="text-gray-400 text-xs">Sem custo, sem obrigação</p>
+              <h3 className="text-white font-semibold text-sm mb-1">Avaliação personalizada</h3>
+              <p className="text-gray-400 text-xs">Atendimento exclusivo</p>
             </div>
           </div>
 
@@ -112,7 +112,7 @@ export function QuizResult({ onGoHome, userData, answers }: QuizResultProps) {
                   <Send className="w-5 h-5 mr-3" />
                   <div className="text-left">
                     <div className="font-semibold text-lg">
-                      {isSendingQuote ? 'Enviando...' : 'Receber orçamento agora'}
+                      {isSendingQuote ? 'Enviando...' : 'Receber atendimento agora'}
                     </div>
                     <div className="text-sm opacity-90">
                       Nossa equipe entrará em contato com você

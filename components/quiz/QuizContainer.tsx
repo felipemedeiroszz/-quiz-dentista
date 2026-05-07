@@ -162,9 +162,9 @@ export function QuizContainer({
                    }}>
                 <div className="flex items-center gap-3 mb-3">
                   <CheckCircle className="w-6 h-6 text-cyan-300" style={{filter: 'drop-shadow(0 0 10px rgba(0, 209, 255, 0.5))'}} />
-                  <h3 className="text-lg font-semibold text-white" style={{textShadow: '0 0 10px rgba(0, 209, 255, 0.3)'}}>Sem compromisso</h3>
+                  <h3 className="text-lg font-semibold text-white" style={{textShadow: '0 0 10px rgba(0, 209, 255, 0.3)'}}>Atendimento especializado</h3>
                 </div>
-                <p className="text-gray-300">Avaliação gratuita e sem obrigação</p>
+                <p className="text-gray-300">Avaliação profissional completa</p>
               </div>
             </div>
           </div>

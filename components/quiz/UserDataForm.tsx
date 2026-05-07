@@ -54,8 +54,8 @@ export function UserDataForm({ onSubmit, onCancel, isLoading }: UserDataFormProp
         
         {/* Texto fora do modal */}
         <div className="text-center mb-6 relative z-10">
-          <span className="text-white text-3xl font-bold drop-shadow-lg" style={{textShadow: '0 0 20px rgba(0, 209, 255, 0.5)'}}>Preencha para receber seu </span>
-          <span className="text-cyan-300 text-3xl font-bold drop-shadow-lg" style={{textShadow: '0 0 30px rgba(0, 209, 255, 0.8)'}}>orçamento!</span>
+          <span className="text-white text-3xl font-bold drop-shadow-lg" style={{textShadow: '0 0 20px rgba(0, 209, 255, 0.5)'}}>Preencha seus dados para </span>
+          <span className="text-cyan-300 text-3xl font-bold drop-shadow-lg" style={{textShadow: '0 0 30px rgba(0, 209, 255, 0.8)'}}>finalizar!</span>
         </div>
         
         {/* Modal com bordas translúcidas e brilho */}
