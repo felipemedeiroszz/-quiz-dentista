@@ -1,0 +1,115 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// Model para administradores do sistema
+model Admin {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  password  String
+  name      String?
+  whatsapp  String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  
+  @@map("admins")
+}
+
+// Model para perguntas do quiz
+model Question {
+  id          String      @id @default(cuid())
+  text        String
+  type        QuestionType // SINGLE_CHOICE ou MULTIPLE_CHOICE
+  order       Int
+  isActive    Boolean     @default(true)
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+  
+  options     Option[]
+  responses   Response[]
+  
+  @@map("questions")
+}
+
+// Model para opções de resposta de cada pergunta
+model Option {
+  id          String   @id @default(cuid())
+  text        String
+  isCorrect   Boolean  @default(false)
+  points      Int      @default(0)
+  order       Int
+  questionId  String
+  
+  question    Question @relation(fields: [questionId], references: [id], onDelete: Cascade)
+  responses   ResponseOption[]
+  
+  @@map("options")
+}
+
+// Model para usuários que respondem ao quiz
+model User {
+  id        String   @id @default(cuid())
+  name      String?
+  email     String?
+  whatsapp String?
+  createdAt DateTime @default(now())
+  
+  responses Response[]
+  
+  @@map("users")
+}
+
+// Model para respostas completas dos usuários
+model Response {
+  id         String   @id @default(cuid())
+  userId     String
+  questionId String
+  score      Int      @default(0)
+  createdAt  DateTime @default(now())
+  
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  question   Question @relation(fields: [questionId], references: [id], onDelete: Cascade)
+  options    ResponseOption[]
+  textAnswers TextAnswer[]
+  
+  @@map("responses")
+}
+
+// Model para opções selecionadas em cada resposta
+model ResponseOption {
+  id         String   @id @default(cuid())
+  responseId String
+  optionId   String
+  
+  response   Response @relation(fields: [responseId], references: [id], onDelete: Cascade)
+  option     Option   @relation(fields: [optionId], references: [id], onDelete: Cascade)
+  
+  @@map("response_options")
+}
+
+// Model para respostas de texto
+model TextAnswer {
+  id         String   @id @default(cuid())
+  responseId String
+  text       String
+  
+  response   Response @relation(fields: [responseId], references: [id], onDelete: Cascade)
+  
+  @@map("text_answers")
+}
+
+
+// Enum para tipos de pergunta
+enum QuestionType {
+  SINGLE_CHOICE
+  MULTIPLE_CHOICE
+  TEXT
+}
